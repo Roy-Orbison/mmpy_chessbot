@@ -1,0 +1,4 @@
+PYTHONUNBUFFERED=1
+MATTERMOST_URL=https://mattermost.your-domain.example
+BOT_TEAM=teamslug
+BOT_TOKEN=longrandombottoken

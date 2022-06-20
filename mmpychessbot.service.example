@@ -1,0 +1,14 @@
+[Unit]
+Description=Chess playing bot for Mattermost
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=chessbot
+EnvironmentFile=/home/chessbot/mmpychessbot/mmpychessbot.conf
+ExecStart=/home/chessbot/mmpychessbot/mm_chess_bot.py
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=default.target
