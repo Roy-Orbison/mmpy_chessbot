@@ -29,19 +29,19 @@ class Playa(Plugin):
 
 			delve = re.search(r'(?i)\bdelve\b', message.text)
 			state = None
-			params = {}
+			params = {
+				"per_page": 10
+			}
 			while True:
 				channel = self.driver.posts.get_posts_for_channel(message.channel_id, params=params)
-				last_post_id = channel['order'][-1]
-				for post_id, post in channel['posts'].items():
+				for post_id in channel['order']:
+					post = channel['posts'][post_id]
 					if post['type'] == self.CHESS_POST_TYPE:
-						state_maybe = json.loads(post['message'])
-						if state == None:
-							state = state_maybe
-							break
+						state = json.loads(post['message'])
+						break
 				else:
 					if delve and channel['prev_post_id'] not in ("", None):
-						params['before'] = last_post_id
+						params['before'] = channel['order'][-1]
 						continue
 				break
 
