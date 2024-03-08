@@ -14,7 +14,7 @@ class Playa(Plugin):
 	@listen_to('.?', needs_mention=True)
 	async def play(self, message: Message):
 		message_type = message.body['data']['post']['type']
-		if re.search('^system_', message_type) != None:
+		if message.body['data']['channel_type'] != 'P' or re.search('^system_', message_type) != None:
 			return
 
 		message_is_move = message_type == self.CHESS_POST_TYPE
