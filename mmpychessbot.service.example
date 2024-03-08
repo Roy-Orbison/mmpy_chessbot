@@ -5,8 +5,8 @@ Wants=network-online.target
 
 [Service]
 User=chessbot
-EnvironmentFile=/home/chessbot/mmpychessbot/mmpychessbot.conf
-ExecStart=/home/chessbot/mmpychessbot/mm_chess_bot.py
+EnvironmentFile=/srv/chessbot/mmpychessbot/mmpychessbot.conf
+ExecStart=/srv/chessbot/mmpychessbot/venv/bin/python3 /srv/chessbot/mmpychessbot/mm_chess_bot.py
 Restart=on-failure
 RestartSec=15
 

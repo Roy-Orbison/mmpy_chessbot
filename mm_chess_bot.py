@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import os
 from mmpy_bot import Bot, Settings
 from mm_chess import Playa
